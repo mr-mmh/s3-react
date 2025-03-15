@@ -1,6 +1,6 @@
 {
     "name": "@mrmmh/s3-react",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "",
     "type": "module",
     "main": "dist/index.cjs",
