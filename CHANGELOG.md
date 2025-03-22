@@ -1,5 +1,11 @@
 # @mrmmh/s3-react
 
+## 0.0.9
+
+### Patch Changes
+
+- 9df8df8: update core pack version to 0.0.8
+
 ## 0.0.8
 
 ### Patch Changes
