@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mrmmh/s3':
-        specifier: ^0.0.7
-        version: 0.0.7
+        specifier: ^0.0.8
+        version: 0.0.8
       react:
         specifier: ^18
         version: 18.3.1
@@ -370,8 +370,8 @@ packages:
   '@manypkg/get-packages@1.1.3':
     resolution: {integrity: sha512-fo+QhuU3qE/2TQMQmbVMqaQ6EWbMhi4ABWP+O4AM1NqPBuy0OrApV5LO6BrrgnhtAHS2NH6RrVk9OL181tTi8A==}
 
-  '@mrmmh/s3@0.0.7':
-    resolution: {integrity: sha512-sr7nrIRTo+E3T5yRwmqg+P0taCbmNGCe6z6tB1DLwL/V+/aG69wK2bRqNyyuinB18e9htWRgldeafp/+ljYPKg==}
+  '@mrmmh/s3@0.0.8':
+    resolution: {integrity: sha512-ZiCagJ6fTtXY3mXIMTxlR3qhTRjrELd1wkzJvkcu73WqBv8MjQUiZoemgUIQeh/tZYEn7i6ZHldnWhzSdQRk9A==}
 
   '@napi-rs/wasm-runtime@0.2.7':
     resolution: {integrity: sha512-5yximcFK5FNompXfJFoWanu5l8v1hNGqNHh9du1xETp9HWk/B/PzvchX55WYOPaIeNglG8++68AAiauBAtbnzw==}
@@ -2488,7 +2488,7 @@ snapshots:
       globby: 11.1.0
       read-yaml-file: 1.1.0
 
-  '@mrmmh/s3@0.0.7':
+  '@mrmmh/s3@0.0.8':
     dependencies:
       axios: 1.8.4
       nanoid: 5.1.5
