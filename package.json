@@ -45,7 +45,7 @@
         "typescript": "^5.8.2"
     },
     "peerDependencies": {
-        "@mrmmh/s3": "^0.0.6",
+        "@mrmmh/s3": "^0.0.7",
         "react": "^18",
         "react-dom": "^18"
     }
