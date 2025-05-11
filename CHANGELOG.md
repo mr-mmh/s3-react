@@ -1,5 +1,11 @@
 # @mrmmh/s3-react
 
+## 0.0.10
+
+### Patch Changes
+
+- c6bd6a2: add enablePath to useS3
+
 ## 0.0.9
 
 ### Patch Changes
