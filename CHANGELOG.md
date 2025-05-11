@@ -1,5 +1,11 @@
 # @mrmmh/s3-react
 
+## 0.0.11
+
+### Patch Changes
+
+- 9f25fd2: fix firstRun issue
+
 ## 0.0.10
 
 ### Patch Changes
