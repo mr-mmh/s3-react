@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
+import {
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+    useTransition,
+} from "react";
 import {
     CreateFolderArgs,
     createS3Client,
@@ -13,11 +20,16 @@ import { useFiles, useFolderPaths, useFolders, useSelect } from "../base";
 import { useCache } from "./use-cache";
 import { useUpload } from "./use-upload";
 import { useWindows } from "./use-windows";
-import type { ClientFileDTO, ClientFolderDTO, SelectionOptions } from "../base/types";
+import type {
+    ClientFileDTO,
+    ClientFolderDTO,
+    SelectionOptions,
+} from "../base/types";
 
 export type UseS3Options = {
     mode: "normal" | "selection";
     selectionOptions?: SelectionOptions;
+    enablePath?: boolean;
 };
 
 export type NotificationContext = {
@@ -59,7 +71,8 @@ export function useS3(opts: UseBucketOpts) {
 
     const currentFolderId = useRef<string | null>(null);
 
-    const { updateMoveDetails, toggleWindow, isOpenUploadFilesWindow } = windowManager;
+    const { updateMoveDetails, toggleWindow, isOpenUploadFilesWindow } =
+        windowManager;
 
     const [isLoadingFolder, startLoadFolder] = useTransition();
     const [isOperating, startOperation] = useTransition();
@@ -76,7 +89,7 @@ export function useS3(opts: UseBucketOpts) {
         async (folderId: string | null) => {
             startLoadFolder(async () => {
                 currentFolderId.current = folderId;
-                if (window) {
+                if (window && options.enablePath) {
                     const pathname = window.location.pathname;
                     const newPath = `${pathname}${folderId ? `?path=${folderId}` : ""}`;
                     window.history.replaceState(null, "", newPath);
@@ -111,6 +124,7 @@ export function useS3(opts: UseBucketOpts) {
             });
         },
         [
+            options.enablePath,
             execute,
             folderManager,
             fileManager,
@@ -328,7 +342,10 @@ export function useS3(opts: UseBucketOpts) {
                     type: "add",
                     payload: [
                         ...acceptedFiles.map((file) =>
-                            SDK.fileUtils.createFileUploadDTO(file, folderManager.folder),
+                            SDK.fileUtils.createFileUploadDTO(
+                                file,
+                                folderManager.folder,
+                            ),
                         ),
                     ],
                 });
