@@ -27,7 +27,7 @@ import type {
 } from "../base/types";
 
 export type UseS3Options = {
-    mode: "normal" | "selection";
+    mode?: "normal" | "selection";
     selectionOptions?: SelectionOptions;
     enablePath?: boolean;
 };
@@ -45,7 +45,6 @@ export type UseBucketOpts = {
     options?: UseS3Options;
 };
 
-let isFirstRun = false;
 export function useS3(opts: UseBucketOpts) {
     const { clientConfig, options = { mode: "normal" } } = opts;
     const SDK = useMemo(
@@ -372,8 +371,6 @@ export function useS3(opts: UseBucketOpts) {
     }, [fileManager, folderManager, folderPathsManager]);
 
     useEffect(() => {
-        isFirstRun = !isFirstRun;
-        if (!isFirstRun) return;
         if (!initilizing) return;
 
         let fId: string | null = null;
