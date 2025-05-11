@@ -46,7 +46,7 @@ export type UseBucketOpts = {
 };
 
 export function useS3(opts: UseBucketOpts) {
-    const { clientConfig, options = { mode: "normal" } } = opts;
+    const { clientConfig, options } = opts;
     const SDK = useMemo(
         () => createS3Client(clientConfig).sdk,
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -88,7 +88,7 @@ export function useS3(opts: UseBucketOpts) {
         async (folderId: string | null) => {
             startLoadFolder(async () => {
                 currentFolderId.current = folderId;
-                if (window && options.enablePath) {
+                if (window && options?.enablePath) {
                     const pathname = window.location.pathname;
                     const newPath = `${pathname}${folderId ? `?path=${folderId}` : ""}`;
                     window.history.replaceState(null, "", newPath);
@@ -123,7 +123,7 @@ export function useS3(opts: UseBucketOpts) {
             });
         },
         [
-            options.enablePath,
+            options?.enablePath,
             execute,
             folderManager,
             fileManager,
@@ -422,7 +422,7 @@ export function useS3(opts: UseBucketOpts) {
         addUploadedFile,
 
         // modes
-        mode: options.mode,
+        mode: options?.mode ?? "normal",
 
         // user
         SDK,
