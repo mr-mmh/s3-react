@@ -1,5 +1,11 @@
 # @mrmmh/s3-react
 
+## 0.0.12
+
+### Patch Changes
+
+- f5e4a18: fix options in useS3
+
 ## 0.0.11
 
 ### Patch Changes
